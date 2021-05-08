@@ -1,1 +1,30 @@
-[{"id":"123245","title":"A Book","imageUrl":"https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg","description":"This is an awesome book!","price":"19"},{"id":"0.41607315815753076","title":"fasfd","imageUrl":"fdasfs","description":"fadsfads","price":"12"}]
+[
+  {
+    "id":"R7_5800X_RTX3080",
+    "title":"R7 5800X, RTX 3080 PC",
+    "imageUrl":"https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/R7_5800X_RTX3080.jpeg",
+    "description":"This is an awesome PC!",
+    "price":"4500"
+  },
+  {
+    "id":"i9-9900k_GTX1080",
+    "title":"i9-9900k, GTX 1080 PC",
+    "imageUrl":"https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/i9-9900k_GTX1080.jpg",
+    "description":"This is an awesome PC!",
+    "price":"1800"
+  },
+  {
+    "id":"R7_2700_GTX970",
+    "title":"R7 2700, GTX 970 PC",
+    "imageUrl":"https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/R7_2700_GTX970.jpg",
+    "description":"This is an awesome PC!",
+    "price":"1000"
+  },
+  {
+    "id":"R7_3800X_GTX1080",
+    "title":"R7 3800X, GTX 1080 PC",
+    "imageUrl":"https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/R7_3800X_GTX1080.jpg",
+    "description":"This is an awesome PC!",
+    "price":"1600"
+  }
+]

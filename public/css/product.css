@@ -9,6 +9,7 @@
     width: 20rem;
     max-width: 95%;
     margin: 1rem;
+    background: #1a1c22;
 }
 
 .product__title {
@@ -18,7 +19,7 @@
 
 .product__price {
     text-align: center;
-    color: #4d4d4d;
+    color: #f2f2f2;
     margin-bottom: 0.5rem;
 }
 

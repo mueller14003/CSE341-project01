@@ -34,7 +34,7 @@ form {
 }
 
 .cart-item {
-  height: 5em;
+  height: 4em;
   background: #1a1c22;
   vertical-align: middle;
   margin: 1em 0em;
@@ -50,7 +50,7 @@ form {
 }
 
 .constrained-height {
-  height: 5em;
+  height: 4em;
   width: auto;
   padding: 0em 1em;
 }

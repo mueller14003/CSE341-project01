@@ -2,14 +2,14 @@
     </head>
 
     <body>
-        <%- include('../includes/navigation.ejs') %>
+        <%- include('../includes/header.ejs') %>
         <main class="centered">
             <h1><%= product.title %></h1>
             <hr>
             <div>
-                <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                <img src="<%= product.imageUrl %>" alt="<%= product.title %>" class="constrained">
             </div>
-            <h2><%= product.price %></h2>
+            <h2>$<%= product.price %></h2>
             <p><%= product.description %></p>
             <%- include('../includes/add-to-cart.ejs') %>
         </main>

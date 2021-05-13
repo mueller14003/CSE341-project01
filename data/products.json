@@ -1,53 +1,44 @@
 [{
-  "id": "R7_5800X_RTX3080",
   "title": "R7 5800X, RTX 3080 PC",
   "imageUrl": "https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/R7_5800X_RTX3080.jpeg",
   "description": "This is an awesome PC!",
   "price": "4000"
 }, {
-  "id": "i9-9900k_GTX1080",
   "title": "i9-9900k, GTX 1080 PC",
   "imageUrl": "https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/i9-9900k_GTX1080.jpg",
   "description": "This is an awesome PC!",
   "price": "1900"
 }, {
-  "id": "R7_2700_GTX970",
   "title": "R7 2700, GTX 970 PC",
   "imageUrl": "https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/R7_2700_GTX970.jpg",
   "description": "This is an awesome PC!",
   "price": "1000"
 }, {
-  "id": "R7_3800X_GTX1080",
   "title": "R7 3800X, GTX 1080 PC",
   "imageUrl": "https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/R7_3800X_GTX1080.jpg",
   "description": "This is an awesome PC!",
   "price": "1800"
 }, {
-  "id": "0.8535665782671837",
   "title": "i7-8700k, GTX 1070 PC",
   "imageUrl": "https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/i7-8700k_GTX1070.jpeg",
   "description": "This is an awesome PC!",
   "price": "1400"
 }, {
-  "id": "0.36103438577046676",
   "title": "R5 5600X, GTX 1660 PC",
   "imageUrl": "https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/R5_5600X_GTX1660.jpg",
   "description": "This is an awesome PC!",
   "price": "1500"
 }, {
-  "id": "0.24072194697730587",
   "title": "R7 3700X, RTX 2070 PC",
   "imageUrl": "https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/R7_3700X_RTX2070.jpg",
   "description": "This is an awesome PC!",
   "price": "2000"
 }, {
-  "id": "0.2317884444640781",
   "title": "R5 3600, GTX 1660 PC",
   "imageUrl": "https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/R5_3600_GTX1660.jpg",
   "description": "This is an awesome PC!",
   "price": "1200"
 }, {
-  "id": "0.44899438668502856",
   "title": "i7-8700k, RTX 2070 PC",
   "imageUrl": "https://mueller14003.github.io/kyle-mueller-custom-computers/media/images/i7-8700_RTX2070.jpg",
   "description": "This is an awesome PC!",

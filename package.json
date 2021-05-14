@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "local": "nodemon app.js"
+    "start-local": "nodemon app.js"
   },
   "author": "Maximilian Schwarzmüller",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "mongodb": "^3.6.6",
+    "mongoose": "^5.12.9",
     "pug": "^2.0.3"
   }
 }

@@ -13,11 +13,11 @@
                         <li class="orders__item">
                             <h1>Order - # <%= order._id %></h1>
                             <ul class="orders__products">
-                                <% order.items.forEach(product => { %>
+                                <% order.products.forEach(p => { %>
                                     <li class="orders__products-item">
-                                        <%= product.quantity %>x
-                                        <img src="<%= product.imageUrl %>" alt="<%= product.title %>" class="constrained-height">
-                                        <%= product.title %>
+                                        <%= p.quantity %>x
+                                        <img src="<%= p.product.imageUrl %>" alt="<%= p.product.title %>" class="constrained-height">
+                                        <%= p.product.title %>
                                     </li>
                                 <% }); %>
                             </ul>

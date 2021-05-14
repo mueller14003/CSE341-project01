@@ -11,6 +11,8 @@ const PORT = process.env.PORT || 5000; // So we can run on heroku || (OR) localh
 
 const errorController = require('./controllers/error');
 
+const User = require('./models/user')
+
 const app = express();
 
 const corsOptions = {
@@ -28,6 +30,16 @@ const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use((req, res, next) => {
+  User.findById('609d89b985e754a5557e45dc')
+    .then(user => {
+      req.user = new User(user.name, user.email, user.cart, user._id);
+      next();
+    }).catch(err => {
+      console.log(err);
+    });
+});
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);

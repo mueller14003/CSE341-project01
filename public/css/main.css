@@ -27,24 +27,47 @@ form {
   display: inline;
 }
 
+hr {
+  color: #1a1c22;
+  background-color: #1a1c22;
+  height: 1px;
+  border: none;
+}
+
 .cart-list {
   list-style: none;
   display: inline;
   vertical-align: middle;
+  max-width: 90%;
+  margin: 0;
+  padding: 0;
+  margin: auto;
+  width: 40rem;
+  max-width: 90%;
 }
 
 .cart-item {
   height: 4em;
   background: #1a1c22;
   vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 1em 0em;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.cart-item:hover {
+  background: #5d5f66;
 }
 
 .cart-text {
   vertical-align: middle;
   display: inline-flex;
   align-items: center;
-  padding: 0em 1em;
+  margin-right: 1rem;
+  margin: 0;
   text-decoration: none;
   color: #f2f2f2;
 }

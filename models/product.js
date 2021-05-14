@@ -1,14 +1,14 @@
-const Cart = require('./cart');
 const mongodb = require('mongodb');
 const getDb = require('../util/database').getDb;
 
 class Product {
-  constructor(title, imageUrl, description, price, id) {
+  constructor(title, imageUrl, description, price, id, userId) {
     this.title = title;
     this.imageUrl = imageUrl;
     this.description = description;
     this.price = price;
     this._id = id ? new mongodb.ObjectId(id) : null;
+    this.userId = userId;
   }
 
   save() {
@@ -39,7 +39,7 @@ class Product {
     .find()
     .toArray()
     .then(products => {
-      console.log(products);
+      //console.log(products);
       return products;
     })
     .catch(err => {
@@ -61,7 +61,6 @@ class Product {
         console.log(err);
       });
   }
-
 
   static deleteById(prodId) {
     const db = getDb();

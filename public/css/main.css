@@ -6,6 +6,7 @@
 
 html {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -176,13 +177,13 @@ hr {
 .mobile-nav {
   width: 30rem;
   height: 100vh;
-  max-width: 90%;
+  max-width: 80%;
   position: fixed;
   left: 0;
   top: 0;
-  background: #ddd;
+  background: #5d5f66;
   z-index: 10;
-  padding: 2rem 1rem 1rem 2rem;
+  padding: 1rem 0.5rem 0.5rem 1rem;
   transform: translateX(-100%);
   transition: transform 0.3s ease-out;
 }
@@ -206,7 +207,7 @@ hr {
 
 .mobile-nav__item a {
   text-decoration: none;
-  color: black;
+  color: #f2f2f2;
   font-size: 1.5rem;
   padding: 0.5rem 2rem;
 }
@@ -244,8 +245,8 @@ hr {
 }
 
 #side-menu-toggle:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #5d5f66;
+  color: #f2f2f2;
 }
 
 .backdrop {

@@ -25,7 +25,8 @@ const options = {
 };
 
 const PORT = process.env.PORT || 5000; // So we can run on heroku || (OR) localhost:5000
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://kylemueller:Ky1eMue11er@free-aws-oregon.ef7ng.mongodb.net/store?retryWrites=true&w=majority";
+const MONGODB_URL = process.env.MONGODB_URL;
+const SESSION_SECRET = process.env.SESSION_SECRET;
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');

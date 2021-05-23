@@ -136,12 +136,15 @@ hr {
   background-color: #1a1c22;
   overflow: hidden;
   align-items: center;
+  display: flex;
 }
 
 .main-header__nav {
   height: 100%;
+  width: 100%;
   display: none;
   align-items: center;
+  justify-content: space-between;
 }
 
 .main-header__item-list {
@@ -166,6 +169,7 @@ hr {
 .main-header__item a:hover {
   background-color: #ddd;
   color: black;
+  cursor: pointer;
 }
 
 .main-header__item a:active,
@@ -333,5 +337,9 @@ hr {
 
   #side-menu-toggle {
     display: none;
+  }
+
+  .user-message {
+    width: 30rem;
   }
 }

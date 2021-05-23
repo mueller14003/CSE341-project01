@@ -38,7 +38,7 @@
                 <li class="main-header__item">
                     <form action="/logout" method="post">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                        <button type="submit">Logout</button>
+                        <a href='#' onclick='this.parentNode.submit(); return false;'>Logout</a>
                     </form>
                 </li>
             <% } %>
@@ -81,7 +81,7 @@
             <li class="mobile-nav__item">
                 <form action="/logout" method="post">
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                    <button type="submit">Logout</button>
+                    <a href='#' onclick='this.parentNode.submit(); return false;'>Logout</a>
                 </form>
             </li>
         <% } %>

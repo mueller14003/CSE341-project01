@@ -73,6 +73,7 @@ exports.postLogin = (req, res, next) => {
 
 exports.postSignup = (req, res, next) => {
   const email = req.body.email;
+  const name = req.body.name;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
   User.findOne({ email: email })
@@ -86,6 +87,7 @@ exports.postSignup = (req, res, next) => {
         .then(hashedPassword => {
           const user = new User({
             email: email,
+            name: name,
             password: hashedPassword,
             cart: { items: [] }
           });
@@ -97,7 +99,7 @@ exports.postSignup = (req, res, next) => {
             to: email,
             from: 'kyle.mueller.custom.pcs@gmail.com',
             subject: 'Account Created Successfully!',
-            html: '<h1>Congrats on your new account!</h1>'
+            html: `<h1>Hello ${name}!</h1>\n<h1>Congrats on your new account!</h1>`
           });
         })
         .catch(err => {

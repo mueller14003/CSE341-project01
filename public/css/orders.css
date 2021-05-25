@@ -11,6 +11,7 @@
 
 .orders__item {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  background: #1a1c22;
   padding: 1rem;
   margin-bottom: 1rem;
 }
@@ -23,7 +24,7 @@
 
 .orders__products-item {
   height: 4em;
-  background: #1a1c22;
+  background: #343743;
   vertical-align: middle;
   display: flex;
   align-items: center;

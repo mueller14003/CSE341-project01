@@ -130,7 +130,6 @@ hr {
 .product-description {
   all: inherit;
   text-align: left;
-  display: inline-block;
   white-space: pre-wrap;
 }
 

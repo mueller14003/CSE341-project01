@@ -20,9 +20,7 @@
                             </div>
                             <div class="card__content">
                                 <h2 class="product__price">$<%= product.price %></h2>
-                                <p class="product__description">
-                                    <%= product.description %>
-                                </p>
+                                <span class="product-description"><%= product.description %></span>
                             </div>
                             <div class="card__actions">
                                 <a href="/products/<%= product._id %>" class="btn">Details</a>

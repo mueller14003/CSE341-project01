@@ -127,7 +127,14 @@ hr {
   max-width: 100%;
 }
 
-.centered {
+.product-description {
+  all: inherit;
+  text-align: left;
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.centered:not(:is(.product-description)) {
   text-align: center;
 }
 

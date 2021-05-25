@@ -10,6 +10,7 @@
     max-width: 95%;
     margin: 1rem;
     background: #1a1c22;
+    position: relative;
 }
 
 .product__title {

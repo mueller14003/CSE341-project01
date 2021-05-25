@@ -131,6 +131,8 @@ hr {
   all: inherit;
   text-align: left;
   white-space: pre-wrap;
+  padding: 1em 0em;
+  margin: 0;
 }
 
 .centered:not(:is(.product-description)) {
@@ -286,6 +288,10 @@ hr {
   padding: 1rem;
 }
 
+.card__content {
+  padding-bottom: 4em;
+}
+
 .card__header h1,
 .card__content h1,
 .card__content h2,
@@ -304,6 +310,11 @@ hr {
 .card__actions {
   padding: 1rem;
   text-align: center;
+  margin: -4em 0em 0em 0em;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .card__actions button,

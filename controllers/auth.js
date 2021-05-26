@@ -79,7 +79,7 @@ exports.postSignup = (req, res, next) => {
   User.findOne({ email: email })
     .then(userDoc => {
       if (userDoc) {
-        req.flash('error', 'E-Mail exists already, please pick a different one.');
+        req.flash('error', 'A user with that E-Mail already exists. Please use a different E-Mail address.');
         return res.redirect('/signup');
       }
       return bcrypt

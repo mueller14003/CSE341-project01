@@ -135,7 +135,7 @@ hr {
   margin: 0;
 }
 
-.centered:not(:is(.product-description)) {
+.centered {
   text-align: center;
 }
 

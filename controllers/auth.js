@@ -76,39 +76,45 @@ exports.postSignup = (req, res, next) => {
   const name = req.body.name;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
-  User.findOne({ email: email })
-    .then(userDoc => {
-      if (userDoc) {
-        req.flash('error', 'A user with that E-Mail already exists. Please use a different E-Mail address.');
-        return res.redirect('/signup');
-      }
-      return bcrypt
-        .hash(password, 12)
-        .then(hashedPassword => {
-          const user = new User({
-            email: email,
-            name: name,
-            password: hashedPassword,
-            cart: { items: [] }
+  if (password === confirmPassword) {
+    User.findOne({ email: email })
+      .then(userDoc => {
+        if (userDoc) {
+          req.flash('error', 'A user with that E-Mail already exists. Please use a different E-Mail address.');
+          return res.redirect('/signup');
+        }
+        return bcrypt
+          .hash(password, 12)
+          .then(hashedPassword => {
+            const user = new User({
+              email: email,
+              name: name,
+              password: hashedPassword,
+              cart: { items: [] }
+            });
+            return user.save();
+          })
+          .then(result => {
+            res.redirect('/login');
+            return transporter.sendMail({
+              to: email,
+              from: 'kyle.mueller.custom.pcs@gmail.com',
+              subject: 'Account Created Successfully!',
+              html: `<h1>Hello ${name}!</h1>\n<h1>Congrats on your new account!</h1>`
+            });
+          })
+          .catch(err => {
+            console.log(err);
           });
-          return user.save();
-        })
-        .then(result => {
-          res.redirect('/login');
-          return transporter.sendMail({
-            to: email,
-            from: 'kyle.mueller.custom.pcs@gmail.com',
-            subject: 'Account Created Successfully!',
-            html: `<h1>Hello ${name}!</h1>\n<h1>Congrats on your new account!</h1>`
-          });
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    })
-    .catch(err => {
-      console.log(err);
-    });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  } else {
+    req.flash('error', 'The passwords entered do not match. Please ensure that you enter the same password in both boxes.');
+    return res.redirect('/signup');
+  }
+  
 };
 
 exports.postLogout = (req, res, next) => {

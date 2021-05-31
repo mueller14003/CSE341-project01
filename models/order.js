@@ -23,6 +23,10 @@ const orderSchema = new Schema({
       required: true,
       ref: 'User'
     }
+  },
+  price: {
+    type: Number,
+    required: true
   }
 });
 

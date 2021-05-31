@@ -19,6 +19,7 @@
     "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^2.4.1",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "csurf": "^1.11.0",
     "dotenv": "^9.0.2",
     "ejs": "^2.6.1",

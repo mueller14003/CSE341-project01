@@ -17,9 +17,15 @@
 }
 
 .orders__products {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: inline;
+  vertical-align: middle;
+  max-width: 90%;
+  margin: 0;
+  padding: 0;
+  margin: auto;
+  width: 40rem;
+  max-width: 90%;
 }
 
 .orders__products-item {
@@ -28,6 +34,7 @@
   vertical-align: middle;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 1em 0em;
   padding: 1rem;
 }

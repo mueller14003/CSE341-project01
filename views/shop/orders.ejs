@@ -15,12 +15,18 @@
                             <ul class="orders__products">
                                 <% order.products.forEach(p => { %>
                                     <li class="orders__products-item">
-                                        <%= p.quantity %>x
-                                        <img src="<%= p.product.imageUrl %>" alt="<%= p.product.title %>" class="constrained-height">
-                                        <%= p.product.title %>
+                                        <a class="cart-text" href="/products/<%= p.product._id %>">
+                                            <%= p.quantity %>x
+                                            <img src="<%= p.product.imageUrl %>" alt="<%= p.product.title %>" class="constrained-height">
+                                            <%= p.product.title %>
+                                        </a>
+                                        <div>
+                                            $<%= p.quantity * p.product.price %>
+                                        </div>
                                     </li>
                                 <% }); %>
                             </ul>
+                            <span>Order Price: $<%= order.price %></span>
                         </li>
                     <% }); %>
                 </ul>

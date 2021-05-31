@@ -49,10 +49,19 @@ exports.getCart = (req, res, next) => {
     .execPopulate()
     .then(user => {
       const products = user.cart.items;
+      let price = 0;
+      if (products.length) {
+        price = products.map(i => {
+          return i.price * i.quantity;
+        }).reduce((total, p) => {
+          return total + p;
+        });
+      }
       res.render('shop/cart', {
         path: '/cart',
         pageTitle: 'Your Cart',
-        products: products
+        products: products,
+        price: price
       });
     })
     .catch(err => console.log(err));
@@ -86,7 +95,12 @@ exports.postOrder = (req, res, next) => {
     .execPopulate()
     .then(user => {
       const products = user.cart.items.map(i => {
-        return { quantity: i.quantity, product: { ...i.productId._doc } };
+        return { quantity: i.quantity, product: { ...i.productId._doc }, price: i.price };
+      });
+      const price = user.cart.items.map(i => {
+        return i.price * i.quantity;
+      }).reduce((total, p) => {
+        return total + p;
       });
       const order = new Order({
         user: {
@@ -94,7 +108,8 @@ exports.postOrder = (req, res, next) => {
           email: req.user.email,
           userId: req.user
         },
-        products: products
+        products: products,
+        price: price
       });
       return order.save();
     })

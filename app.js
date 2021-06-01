@@ -3,7 +3,6 @@ const path = require('path');
 require('dotenv').config();
 const cors = require('cors') // Place this with other requires (like 'path' and 'express')
 const express = require('express');
-var enforce = require('express-sslify');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -47,7 +46,6 @@ const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(enforce.HTTPS());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   session({

@@ -38,3 +38,7 @@
   margin: 1em 0em;
   padding: 1rem;
 }
+
+.orders__products-item:hover {
+  background: #5d5f66;
+}

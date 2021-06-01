@@ -55,7 +55,7 @@ hr {
 }
 
 .link {
-  color: #426ab2;
+  color: #809fff;
 }
 
 .footer-box {
@@ -75,7 +75,7 @@ hr {
 
 .ftr {
   text-decoration: none;
-  color: #6a768a;
+  color: #adb4c0;
 }
 
 .cart-list {
@@ -339,6 +339,33 @@ hr {
   border: 1px solid #d86561;
   background-color: #d86561;
   color: white;
+}
+
+.btn.danger {
+  color: red;
+  border-color: red;
+}
+
+.btn.danger:hover,
+.btn.danger:active {
+  background: red;
+  color: white;
+}
+
+.user-message {
+  margin: auto;
+  width: 90%;
+  border: 1px solid #4771fa;
+  padding: 0.5rem;
+  border-radius: 3px;
+  background: #b9c9ff;
+  text-align: center;
+}
+
+.user-message--error {
+  border-color: red;
+  background: rgb(255, 176, 176);
+  color: red;
 }
 
 @media (min-width: 1260px) {

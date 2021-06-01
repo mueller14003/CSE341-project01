@@ -24,7 +24,12 @@ exports.getLogin = (req, res, next) => {
   res.render('auth/login', {
     path: '/login',
     pageTitle: 'Login',
-    errorMessage: message
+    errorMessage: message,
+    oldInput: {
+      email: '',
+      password: ''
+    },
+    validationErrors: []
   });
 };
 
@@ -38,18 +43,47 @@ exports.getSignup = (req, res, next) => {
   res.render('auth/signup', {
     path: '/signup',
     pageTitle: 'Signup',
-    errorMessage: message
+    errorMessage: message,
+    oldInput: {
+      email: '',
+      password: '',
+      confirmPassword: ''
+    },
+    validationErrors: []
   });
 };
 
 exports.postLogin = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).render('auth/login', {
+      path: '/login',
+      pageTitle: 'Login',
+      errorMessage: errors.array()[0].msg,
+      oldInput: {
+        email: email,
+        password: password
+      },
+      validationErrors: errors.array()
+    });
+  }
+
   User.findOne({ email: email })
     .then(user => {
       if (!user) {
-        req.flash('error', 'Invalid email or password.');
-        return res.redirect('/login');
+        return res.status(422).render('auth/login', {
+          path: '/login',
+          pageTitle: 'Login',
+          errorMessage: 'Invalid email or password.',
+          oldInput: {
+            email: email,
+            password: password
+          },
+          validationErrors: []
+        });
       }
       bcrypt
         .compare(password, user.password)
@@ -62,8 +96,16 @@ exports.postLogin = (req, res, next) => {
               res.redirect('/');
             });
           }
-          req.flash('error', 'Invalid email or password.');
-          res.redirect('/login');
+          return res.status(422).render('auth/login', {
+            path: '/login',
+            pageTitle: 'Login',
+            errorMessage: 'Invalid email or password.',
+            oldInput: {
+              email: email,
+              password: password
+            },
+            validationErrors: []
+          });
         })
         .catch(err => {
           console.log(err);
@@ -77,45 +119,87 @@ exports.postSignup = (req, res, next) => {
   const email = req.body.email;
   const name = req.body.name;
   const password = req.body.password;
-  const confirmPassword = req.body.confirmPassword;
-  if (password === confirmPassword) {
-    User.findOne({ email: email })
-      .then(userDoc => {
-        if (userDoc) {
-          req.flash('error', 'A user with that E-Mail already exists. Please use a different E-Mail address.');
-          return res.redirect('/signup');
-        }
-        return bcrypt
-          .hash(password, 12)
-          .then(hashedPassword => {
-            const user = new User({
-              email: email,
-              name: name,
-              password: hashedPassword,
-              cart: { items: [] }
-            });
-            return user.save();
-          })
-          .then(result => {
-            res.redirect('/login');
-            return transporter.sendMail({
-              to: email,
-              from: 'kyle.mueller.custom.pcs@gmail.com',
-              subject: 'Account Created Successfully!',
-              html: `<h1>Hello ${name}!</h1>\n<h1>Congrats on your new account!</h1>`
-            });
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  } else {
-    req.flash('error', 'The passwords entered do not match. Please ensure that you enter the same password in both boxes.');
-    return res.redirect('/signup');
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log(errors.array());
+    return res.status(422).render('auth/signup', {
+      path: '/signup',
+      pageTitle: 'Signup',
+      errorMessage: errors.array()[0].msg,
+      oldInput: {
+        email: email,
+        name: name,
+        password: password,
+        confirmPassword: req.body.confirmPassword
+      },
+      validationErrors: errors.array()
+    });
   }
+
+  bcrypt
+  .hash(password, 12)
+  .then(hashedPassword => {
+    const user = new User({
+      email: email,
+      name: name,
+      password: hashedPassword,
+      cart: { items: [] }
+    });
+    return user.save();
+  })
+  .then(result => {
+    res.redirect('/login');
+      return transporter.sendMail({
+        to: email,
+        from: '[Kyle Mueller Custom PCs]<[kyle.mueller.custom.pcs@gmail.com]>',
+        subject: 'Account Created Successfully!',
+        html: `<h1>Hello ${name}!</h1>\n<h1>Congrats on your new account!</h1>`
+      });
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
+  // const confirmPassword = req.body.confirmPassword;
+  // if (password === confirmPassword) {
+  //   User.findOne({ email: email })
+  //     .then(userDoc => {
+  //       if (userDoc) {
+  //         req.flash('error', 'A user with that E-Mail already exists. Please use a different E-Mail address.');
+  //         return res.redirect('/signup');
+  //       }
+  //       return bcrypt
+  //         .hash(password, 12)
+  //         .then(hashedPassword => {
+  //           const user = new User({
+  //             email: email,
+  //             name: name,
+  //             password: hashedPassword,
+  //             cart: { items: [] }
+  //           });
+  //           return user.save();
+  //         })
+  //         .then(result => {
+  //           res.redirect('/login');
+  //           return transporter.sendMail({
+  //             to: email,
+  //             from: 'kyle.mueller.custom.pcs@gmail.com',
+  //             subject: 'Account Created Successfully!',
+  //             html: `<h1>Hello ${name}!</h1>\n<h1>Congrats on your new account!</h1>`
+  //           });
+  //         })
+  //         .catch(err => {
+  //           console.log(err);
+  //         });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // } else {
+  //   req.flash('error', 'The passwords entered do not match. Please ensure that you enter the same password in both boxes.');
+  //   return res.redirect('/signup');
+  // }
   
 };
 
@@ -141,6 +225,7 @@ exports.getReset = (req, res, next) => {
 };
 
 exports.postReset = (req, res, next) => {
+  let name = "";
   crypto.randomBytes(32, (err, buffer) => {
     if (err) {
       console.log(err);
@@ -153,6 +238,7 @@ exports.postReset = (req, res, next) => {
           req.flash('error', 'No account with that email found.');
           return res.redirect('/reset');
         }
+        name = user.name;
         user.resetToken = token;
         user.resetTokenExpiration = Date.now() + 3600000;
         return user.save();
@@ -161,9 +247,10 @@ exports.postReset = (req, res, next) => {
         res.redirect('/');
         transporter.sendMail({
           to: req.body.email,
-          from: 'kyle.mueller.custom.pcs@gmail.com',
+          from: '[Kyle Mueller Custom PCs]<[kyle.mueller.custom.pcs@gmail.com]>',
           subject: 'Password reset',
           html: `
+            <h1>Hello ${name},</h1>
             <p>You requested a password reset</p>
             <p>Click this <a href="https://kmpcs.herokuapp.com/reset/${token}">link</a> to set a new password.</p>
           `

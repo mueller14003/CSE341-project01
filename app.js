@@ -95,7 +95,12 @@ mongoose
     MONGODB_URL, options
   )
   .then(result => {
-    https.createServer(httpsOptions, app).listen(PORT);
+    if (PORT === 5000) {
+      https.createServer(httpsOptions, app).listen(PORT);
+    } else {
+      app.listen(PORT);
+    }
+    
   })
   .catch(err => {
     console.log(err);

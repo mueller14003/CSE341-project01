@@ -131,7 +131,7 @@ hr {
   left: 0;
   top: 0;
   height: auto;
-  width: -webkit-fill-available;
+  width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

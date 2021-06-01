@@ -11,12 +11,12 @@ const csrf = require('csurf');
 const flash = require('connect-flash');
 
 const fs = require('fs');
-// const https = require('https');
+const https = require('https');
 
-// const httpsOptions = {
-//   key: fs.readFileSync('./key.pem'),
-//   cert: fs.readFileSync('./cert.pem')
-// };
+const httpsOptions = {
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./cert.pem')
+};
 
 const errorController = require('./controllers/error');
 const User = require('./models/user')
@@ -88,15 +88,27 @@ app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use(authRoutes);
 
+app.get('/500', errorController.get500);
+
 app.use(errorController.get404);
+
+app.use((error, req, res, next) => {
+  // res.status(error.httpStatusCode).render(...);
+  // res.redirect('/500');
+  res.status(500).render('500', {
+    pageTitle: 'Error!',
+    path: '/500',
+    isAuthenticated: req.session.isLoggedIn
+  });
+});
 
 mongoose
   .connect(
     MONGODB_URL, options
   )
   .then(result => {
-      //https.createServer(httpsOptions, app).listen(PORT);
-      app.listen(PORT);
+      https.createServer(httpsOptions, app).listen(PORT);
+      //app.listen(PORT);
   })
   .catch(err => {
     console.log(err);

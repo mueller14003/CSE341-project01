@@ -113,7 +113,11 @@ exports.postLogin = (req, res, next) => {
           res.redirect('/login');
         });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
 exports.postSignup = (req, res, next) => {
@@ -159,8 +163,11 @@ exports.postSignup = (req, res, next) => {
       });
   })
   .catch(err => {
-    console.log(err);
+    const error = new Error(err);
+    error.httpStatusCode = 500;
+    return next(error);
   });
+};
 
   // const confirmPassword = req.body.confirmPassword;
   // if (password === confirmPassword) {
@@ -201,8 +208,6 @@ exports.postSignup = (req, res, next) => {
   //   req.flash('error', 'The passwords entered do not match. Please ensure that you enter the same password in both boxes.');
   //   return res.redirect('/signup');
   // }
-  
-};
 
 exports.postLogout = (req, res, next) => {
   req.session.destroy(err => {
@@ -258,7 +263,9 @@ exports.postReset = (req, res, next) => {
         });
       })
       .catch(err => {
-        console.log(err);
+        const error = new Error(err);
+        error.httpStatusCode = 500;
+        return next(error);
       });
   });
 };
@@ -282,7 +289,9 @@ exports.getNewPassword = (req, res, next) => {
       });
     })
     .catch(err => {
-      console.log(err);
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
     });
 };
 
@@ -311,6 +320,8 @@ exports.postNewPassword = (req, res, next) => {
       res.redirect('/login');
     })
     .catch(err => {
-      console.log(err);
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
     });
 };

@@ -10,6 +10,14 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
 
+const fs = require('fs');
+const https = require('https');
+
+const httpsOptions = {
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./cert.pem')
+};
+
 const errorController = require('./controllers/error');
 const User = require('./models/user')
 
@@ -87,7 +95,7 @@ mongoose
     MONGODB_URL, options
   )
   .then(result => {
-    app.listen(PORT);
+    https.createServer(httpsOptions, app).listen(PORT);
   })
   .catch(err => {
     console.log(err);

@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
 :root {
-  background-clr: #282C34;
-  dark-clr: #1a1c22;
-  white-text: #f2f2f2;
-  light-text: #adb4c0;
-  salmon-clr: #d76460;
-  link-clr: #809fff;
-  grey-clr: #5d5f66;
+  --background-clr: #282C34;
+  --dark-clr: #1a1c22;
+  --white-text: #f2f2f2;
+  --light-text: #adb4c0;
+  --salmon-clr: #d76460;
+  --link-clr: #809fff;
+  --grey-clr: #5d5f66;
 }
 
 * {
@@ -22,8 +22,8 @@ html {
 body {
   margin: 0 auto;
   width: 100%;
-  color: var(white-text);
-  background: var(background-clr);
+  color: var(--white-text);
+  background: var(--background-clr);
   font-family: 'Open Sans', sans-serif;
   position: relative;
   min-height: 100%;
@@ -31,7 +31,7 @@ body {
 }
 
 body a {
-  color: var(link-clr);
+  color: var(--link-clr);
 }
 
 h1 {
@@ -51,27 +51,27 @@ form {
 }
 
 hr {
-  color: var(dark-clr);
-  background-color: var(dark-clr);
+  color: var(--dark-clr);
+  background-color: var(--dark-clr);
   height: 1px;
   border: none;
 }
 
 .intro {
-  background-color: var(dark-clr);
+  background-color: var(--dark-clr);
   text-align: center;
   padding: 20px 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
 .link {
-  color: var(link-clr);
+  color: var(--link-clr);
 }
 
 .footer-box {
   clear: both;
   height: 4em;
-  background: var(dark-clr);
+  background: var(--dark-clr);
   vertical-align: middle;
   display: flex;
   align-items: center;
@@ -85,7 +85,7 @@ hr {
 
 .ftr {
   text-decoration: none;
-  color: var(light-text);
+  color: var(--light-text);
 }
 
 .cart-list {
@@ -102,7 +102,7 @@ hr {
 
 .cart-item {
   height: 4em;
-  background: var(dark-clr);
+  background: var(--dark-clr);
   vertical-align: middle;
   display: flex;
   align-items: center;
@@ -113,7 +113,7 @@ hr {
 }
 
 .cart-item:hover {
-  background: var(grey-clr);
+  background: var(--grey-clr);
 }
 
 .cart-text {
@@ -123,7 +123,7 @@ hr {
   margin-right: 1rem;
   margin: 0;
   text-decoration: none;
-  color: var(white-text);
+  color: var(--white-text);
 }
 
 .constrained-height {
@@ -172,7 +172,7 @@ hr {
 
 .product-page {
   text-align: center;
-  flood-color: var(dark-clr);
+  flood-color: var(--dark-clr);
 }
 
 .centered {
@@ -181,7 +181,7 @@ hr {
 
 .main-header {
   height: 100%;
-  background-color: var(dark-clr);
+  background-color: var(--dark-clr);
   overflow: hidden;
   align-items: center;
   display: flex;
@@ -207,7 +207,7 @@ hr {
 
 .main-header__item a {
   text-decoration: none;
-  color: var(white-text);
+  color: var(--white-text);
   text-align: center;
   padding: 14px 16px;
   font-size: 17px;
@@ -222,7 +222,7 @@ hr {
 
 .main-header__item a:active,
 .main-header__item a.active {
-  background-color: var(salmon-clr);
+  background-color: var(--salmon-clr);
   color: black;
 }
 
@@ -233,7 +233,7 @@ hr {
   position: fixed;
   left: 0;
   top: 0;
-  background: var(grey-clr);
+  background: var(--grey-clr);
   z-index: 10;
   padding: 1rem 0.5rem 0.5rem 1rem;
   transform: translateX(-100%);
@@ -259,20 +259,20 @@ hr {
 
 .mobile-nav__item a {
   text-decoration: none;
-  color: var(white-text);
+  color: var(--white-text);
   font-size: 1.5rem;
   padding: 0.5rem 2rem;
 }
 
 .mobile-nav__item a:hover {
-  background: var(background-clr);
-  color: var(white-text);
+  background: var(--background-clr);
+  color: var(--white-text);
   border-radius: 3px;
 }
 
 .mobile-nav__item a:active,
 .mobile-nav__item a.active {
-  background: var(salmon-clr);
+  background: var(--salmon-clr);
   color: black;
   border-radius: 3px;
 }
@@ -292,12 +292,12 @@ hr {
 }
 
 #side-menu-toggle:active {
-  background-color:var(salmon-clr);
+  background-color:var(--salmon-clr);
   color: black;
 }
 
 #side-menu-toggle:hover {
-  background-color: var(grey-clr);
+  background-color: var(--grey-clr);
   color: var(white-text);
 }
 
@@ -385,8 +385,8 @@ hr {
   padding: 0.25rem 1rem;
   text-decoration: none;
   font: inherit;
-  border: 1px solid var(background-clr);
-  color: var(background-clr);
+  border: 1px solid var(--background-clr);
+  color: var(--background-clr);
   background: white;
   border-radius: 3px;
   cursor: pointer;
@@ -394,8 +394,8 @@ hr {
 
 .btn:hover,
 .btn:active {
-  border: 1px solid var(salmon-clr);
-  background-color: var(salmon-clr);
+  border: 1px solid var(--salmon-clr);
+  background-color: var(--salmon-clr);
   color: white;
 }
 

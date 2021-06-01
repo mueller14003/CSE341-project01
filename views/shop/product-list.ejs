@@ -20,7 +20,7 @@
                             </div>
                             <div class="card__content">
                                 <h2 class="product__price">$<%= product.price %></h2>
-                                <span class="product-description"><%= product.description %></span>
+                                <span class="product-description-smol"><%= product.description.split('\n').slice(0,4).join('\n') %></span>
                             </div>
                             <div class="card__actions">
                                 <a href="/products/<%= product._id %>" class="btn">Details</a>

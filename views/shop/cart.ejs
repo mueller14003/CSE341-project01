@@ -7,7 +7,7 @@
             <% if (products.length > 0) { %>
                 <ul class="cart-list">
                     <% products.forEach(p => { %>
-                        <li class="cart-item">
+                        <li class="cart-item" onclick="location.href='/products/<%= p.productId._id %>'">
                             <a class="cart-text" href="/products/<%= p.productId._id %>">
                                 <%= p.quantity %>x
                                 <img src="<%= p.productId.imageUrl %>" alt="<%= p.productId.title %>" class="constrained-height">

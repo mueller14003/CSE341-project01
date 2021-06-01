@@ -100,6 +100,7 @@ hr {
   margin: 1em 0em;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
 }
 
 .cart-item:hover {
@@ -127,12 +128,22 @@ hr {
   max-width: 100%;
 }
 
+.product-description-smol {
+  all: inherit;
+  text-align: left;
+  white-space: pre-wrap;
+  padding: 1em 0em;
+  margin: 0;
+  font-size: 15px;
+}
+
 .product-description {
   all: inherit;
   text-align: left;
   white-space: pre-wrap;
   padding: 1em 0em;
   margin: 0;
+  line-height: 185%;
 }
 
 .centered {

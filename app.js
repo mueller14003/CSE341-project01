@@ -41,6 +41,8 @@ const csrfProtection = csrf();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+app.use("/public", express.static('public'));
+
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');

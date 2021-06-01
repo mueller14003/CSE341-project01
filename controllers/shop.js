@@ -7,7 +7,7 @@ exports.getProducts = (req, res, next) => {
       // console.log(products);
       res.render('shop/product-list', {
         prods: products,
-        pageTitle: 'All Products',
+        pageTitle: 'Products',
         path: '/products'
       });
     })
@@ -40,7 +40,7 @@ exports.getIndex = (req, res, next) => {
     .then(products => {
       res.render('shop/index', {
         prods: products,
-        pageTitle: 'Shop',
+        pageTitle: 'Home Page',
         path: '/'
       });
     })

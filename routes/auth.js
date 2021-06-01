@@ -16,7 +16,7 @@ router.post(
     body('email')
       .isEmail()
       .withMessage('Please enter a valid email address.')
-      .normalizeEmail(),
+      .normalizeEmail({"gmail_remove_dots": false}),
     body('password', 'Password has to be valid.')
       .isLength({ min: 5 })
       .isAlphanumeric()
@@ -40,7 +40,7 @@ router.post(
           }
         });
       })
-      .normalizeEmail(),
+      .normalizeEmail({"gmail_remove_dots": false}),
     body(
       'password',
       'Please enter a password of at least 5 characters with only numbers and text.'

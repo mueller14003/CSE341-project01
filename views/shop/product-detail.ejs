@@ -1,4 +1,17 @@
 <%- include('../includes/head.ejs') %>
+<script>
+    function mOver() {
+        document.getElementById("zoomer").style.transform = 'scale(1.5)';
+    }
+    function mOut() {
+        document.getElementById("zoomer").style.transform = 'scale(1)';
+    }
+    function mMove(e) {
+        let el = document.getElementById("zoomer");
+        let transOrig = (e.layerX / el.offsetWidth) * 100 + '% ' + (e.layerY / el.offsetHeight) * 100 +'%';
+        el.style.transformOrigin = transOrig;
+    }
+</script>
     </head>
 
     <body>
@@ -6,8 +19,8 @@
         <main class="centered">
             <h1 ><%= product.title %></h1>
             <br>
-            <div>
-                <img src="<%= product.imageUrl %>" alt="<%= product.title %>" class="constrained">
+            <div class="zoomable" onmouseover="mOver()" onmouseout="mOut()" onmousemove="mMove(event)">
+                <img src="<%= product.imageUrl %>" id="zoomer" alt="<%= product.title %>" class="product-img">
             </div>
             <h2>$<%= product.price %></h2><br>
             <span class="product-description"><%= product.description %></span>

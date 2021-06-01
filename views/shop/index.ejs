@@ -13,7 +13,7 @@
             </p>
             <div class="grid">
                 <% for (let product of prods) { %>
-                    <article class="card product-item">
+                    <article class="card product-item" onclick="location.href='/products/<%= product._id %>'">
                         <header class="card__header">
                             <h1 class="product__title"><%= product.title %></h1>
                         </header>
@@ -25,6 +25,7 @@
                             <h2 class="product__price">$<%= product.price %></h2>
                         </div>
                         <div class="card__actions">
+                            <a href="/products/<%= product._id %>" class="btn">Details</a>
                             <% if (isAuthenticated) { %>
                                 <%- include('../includes/add-to-cart.ejs', {product: product}) %>
                             <% } %>

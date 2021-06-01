@@ -146,6 +146,7 @@ hr {
   background-position: center;
   background-size: cover;
   transition: transform .5s ease-out;
+  display: block;
 }
 
 .zoomable {
@@ -350,6 +351,7 @@ hr {
 
 .card__image img {
   width: 100%;
+  display: block;
 }
 
 .card__image:hover {

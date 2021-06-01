@@ -47,6 +47,15 @@ const authRoutes = require('./routes/auth');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use((req,res,next) => {
+  if (req.header('x-forwarded-proto') == 'http') {
+    res.redirect(301, 'https://' + 'kmpcs.herokuapp.com' + req.url)
+    return
+  }
+  next()
+});
+
 app.use(
   session({
     secret: 'my secret',

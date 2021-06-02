@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
 :root {
-  --background-clr: #282C34;
-  --dark-clr: #1a1c22;
+  --background-clr: hsl(220, 13%, 18%);
+  --dark-clr: hsl(225, 13%, 12%);
   --white-text: #f2f2f2;
   --light-text: #adb4c0;
   --salmon-clr: #d76460;
@@ -61,6 +61,18 @@ hr {
   background-color: var(--dark-clr);
   text-align: center;
   padding: 20px 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.title {
+  background-color: var(--dark-clr);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.description {
+  background-color: var(--dark-clr);
+  margin: 15px 0px;
+  padding: 10px 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
@@ -166,6 +178,8 @@ hr {
   all: inherit;
   text-align: left;
   white-space: pre-wrap;
+  box-shadow: none;
+  background-color: none;
   padding: 1em 0em;
   margin: 0;
   line-height: 185%;
@@ -389,7 +403,7 @@ hr {
   font: inherit;
   border: 1px solid var(--background-clr);
   color: var(--background-clr);
-  background: white;
+  background: var(--white-text);
   border-radius: 3px;
   cursor: pointer;
 }

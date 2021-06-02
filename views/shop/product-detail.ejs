@@ -17,17 +17,19 @@
     <body>
         <%- include('../includes/header.ejs') %>
         <main class="centered">
-            <h1 ><%= product.title %></h1>
+            <h1 class="title"><%= product.title %></h1>
             <br>
             <div class="zoomable" onmouseover="mOver()" onmouseout="mOut()" onmousemove="mMove(event)">
                 <img src="<%= product.imageUrl %>" id="zoomer" alt="<%= product.title %>" class="product-img">
             </div>
-            <h2>$<%= product.price %></h2><br>
-            <span class="product-description"><%= product.description %></span>
-            <% if (isAuthenticated) { %>
-                <br>
-                <%- include('../includes/add-to-cart.ejs', {product: product}) %>
-                <br><br>
-            <% } %>
+            <div class="description">
+                <h2>$<%= product.price %></h2><br>
+                <span class="product-description"><%= product.description %></span>
+                <% if (isAuthenticated) { %>
+                    <br>
+                    <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+                    <br><br>
+                <% } %>
+            </div>
         </main>
         <%- include('../includes/end.ejs') %>
